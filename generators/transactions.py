@@ -15,12 +15,12 @@ def get_transactions(num):
     """Generate fake transactions dictionary"""
     genders = ["m", "f"]
 
-    output = []
+    transactions = []
     for x in range(num):
         latitude, longitude, place, _, _ = fake.local_latlng(
             country_code="MX", coords_only=False
         )
-        output.append(
+        transactions.append(
             {
                 "date": fake.date_time_between(start_date="-30d", end_date="+30d"),
                 "gender": random.choice(genders),
@@ -37,7 +37,7 @@ def get_transactions(num):
             }
         )
 
-    return output
+    return transactions, tickets, address, pictures
 
 
 def get_transactions_df(num=1):
